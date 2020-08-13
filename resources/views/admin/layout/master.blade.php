@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-    <title>bootstrap 4 sidebar</title>
+    <title>Project Managment System</title>
   </head>
   <body>
 
