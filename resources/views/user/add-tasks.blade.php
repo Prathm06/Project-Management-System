@@ -8,14 +8,14 @@
     @csrf
     <div class="form-row border border-dark pl-2 pr-2 pt-4 pb-4 rounded" >
       <div class="form-group col-lg-12 col-md-12">
-        <input type="text" name="name" value="{{ old('name') }}" placeholder="Task Name" class="form-control">
+        <input type="text" name="name" style="font-weight : bold;border: none; border-bottom:2px black solid; outline:none;background:none;" value="{{ old('name') }}" placeholder="Task Name" class="form-control">
         @error('name')
           <span class="text-danger">{{ $message }}</span>
         @enderror
         <br>
       </div>
       <div class="form-group col-lg-12 col-md-12">
-        <textarea name="description" rows="5" cols="30" class="form-control" placeholder="Task Description">{{ old('description') }}</textarea>
+        <input type="text" name="description" style="font-weight : bold;border: none; border-bottom:2px black solid; outline:none;background:none;" value="{{ old('description') }}" placeholder="Task Description" class="form-control">
         @error('description')
           <span class="text-danger">{{ $message }}</span>
         @enderror
@@ -23,7 +23,7 @@
       </div>
       <div class="form-group col-lg-12 col-md-12">
         <label for="exampleFormControlSelect1">Select Project </label>
-        <select class="form-control" id="" name="project_id">
+        <select style="font-weight : bold;border: none; border-bottom:2px black solid; outline:none;background:none;" class="form-control" id="" name="project_id">
         @foreach ($AProject as $project)
           @php
             $duedate = $project->enddate;

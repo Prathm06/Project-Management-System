@@ -6,7 +6,8 @@
 @section('content')
 <div>
   <i class="fas fa-search"></i>
-  <input class=" w-50"type="text" id="myInput" onkeyup="myFunction()" placeholder="Search your name here" title="Type in a name">
+  <input class=" w-50" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search your name here" title="Type in a name">
+
 </div>
 <table class="table" id="myTable">
     <thead class="thead-dark">

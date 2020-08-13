@@ -63,11 +63,6 @@
                   @endforeach
               </tbody>
           </table>
-          <div class="row">
-              <div class="col-12 d-flex justify-content-center">
-                {{ $projectuser->links() }}
-              </div>
-            </div>
       </div>
       <div class="col-lg-12 col-sm-12 col-md-12">
         <div id="myAlert" class="alert alert-danger collapse">
@@ -119,11 +114,6 @@
               @endforeach
             </tbody>
           </table>
-          <div class="row">
-            <div class="col-12 d-flex justify-content-center pt-2">
-              {{ $taskarray->links() }}
-            </div>
-          </div>
       </div>
     </div>  
     @else

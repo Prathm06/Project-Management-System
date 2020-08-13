@@ -7,6 +7,10 @@
 <div>
   <i class="fas fa-search"></i>
   <input class=" w-50"type="text" id="myInput" onkeyup="myFunction()" placeholder="Search your name here" title="Type in a name">
+  <div>
+    <a id="removeMem" class="btn btn-danger" href="{{route('project.removeMember', ['id' => $project->id])}}" role="button"><i class="fas fa-user-slash"></i> Remove Member</a>
+    <a id="removeMem" class="btn btn-secondary" href="{{ route('admin.Manageproject') }}" role="button"><i class="fas fa-hand-point-left"></i> Back</a>
+  </div>
 </div>
   <table class="table" id="myTable">
     <thead class="thead-dark">
@@ -32,9 +36,5 @@
     <div class="col-12 d-flex justify-content-center pt-3">
       {{ $newUser1->links() }}
     </div>
-  </div>
-  <div>
-    <a id="removeMem" class="btn btn-danger" href="{{route('project.removeMember', ['id' => $project->id])}}" role="button"><i class="fas fa-user-slash"></i> Remove Member</a>
-    <a id="removeMem" class="btn btn-secondary" href="{{ route('admin.Manageproject') }}" role="button"><i class="fas fa-hand-point-left"></i> Back</a>
   </div>
 @endsection

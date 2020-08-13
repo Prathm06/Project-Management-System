@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function(){
     foreach ($projects as $project) {
       array_push($arrayName,$project->project_id);
     }
-    $AProject = Project::whereIn('id', $arrayName)->paginate(10);
+    $AProject = Project::whereIn('id', $arrayName)->paginate();
     return view('user.view-projects', compact('AProject'));
   })->name('home');
 
@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function(){
     foreach ($users as $user) {
       array_push($arrayName,$user->user_id);
     }
-    $projectuser = User::whereIn('id', $arrayName)->paginate(2);
+    $projectuser = User::whereIn('id', $arrayName)->paginate();
 
     $tasks = $project->tasks()->get(array('id'));
     // return $tasks;
@@ -44,7 +44,7 @@ Route::group(['middleware' => ['auth']], function(){
     foreach ($tasks as $task) {
       array_push($arrayName,$task->id);
     }
-    $taskarray = Task::whereIn('id', $arrayName)->paginate(10);
+    $taskarray = Task::whereIn('id', $arrayName)->paginate();
     return view('user.project-details', compact('project','taskarray','projectuser'));
 
   })->name('user-project.view');
@@ -111,7 +111,7 @@ Route::group(['middleware' =>['auth','admin']], function(){
           foreach ($users as $user) {
             array_push($arrayName,$user->user_id);
           }
-          $newUser1 = User::whereNotIn('id', $arrayName)->paginate(5);
+          $newUser1 = User::whereNotIn('id', $arrayName)->paginate();
           // $newUser2 = User::whereIn('id', $arrayName)->paginate(6);
           return view('admin.add-member', compact('project','newUser1'));
 
@@ -125,8 +125,8 @@ Route::group(['middleware' =>['auth','admin']], function(){
           foreach ($users as $user) {
             array_push($arrayName,$user->user_id);
           }
-          $newUser1 = User::whereNotIn('id', $arrayName)->paginate(5);
-          $newUser2 = User::whereIn('id', $arrayName)->paginate(5);
+          $newUser1 = User::whereNotIn('id', $arrayName)->paginate();
+          $newUser2 = User::whereIn('id', $arrayName)->paginate();
           return view('admin.remove-member', compact('project','newUser2'));
 
         })->name('project.removeMember');
@@ -145,14 +145,14 @@ Route::group(['middleware' =>['auth','admin']], function(){
       foreach ($users as $user) {
         array_push($arrayName,$user->user_id);
       }
-      $projectuser = User::whereIn('id', $arrayName)->paginate(2);
+      $projectuser = User::whereIn('id', $arrayName)->paginate();
 
       $tasks = $project->tasks()->get(array('id'));
       $arrayName = array();
       foreach ($tasks as $task) {
         array_push($arrayName,$task->id);
       }
-      $projecttask = Task::whereIn('id', $arrayName)->paginate(2);
+      $projecttask = Task::whereIn('id', $arrayName)->paginate();
 
       return view('admin.view-project-details', compact('project','projectuser','projecttask'));
     });
