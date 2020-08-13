@@ -46,13 +46,28 @@
 
             .title {
                 font-size: 84px;
+                font-weight: bold;
             }
+            .title { 
+                animation: fadeInAnimation ease 5s ;
+                animation-iteration-count: 1; 
+                animation-fill-mode: forwards; 
+            } 
+  
+            @keyframes fadeInAnimation { 
+                0% { 
+                    opacity: 0; 
+                }
+                100% { 
+                    opacity: 1; 
+                } 
+            } 
+
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
-                font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
@@ -70,10 +85,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}"  style="font-weight: bold;">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" style="font-weight: bold;">Register</a>
                         @endif
                     @endauth
                 </div>
@@ -82,16 +97,6 @@
             <div class="content">
                 <div class="title m-b-md">
                     Project Management System
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
