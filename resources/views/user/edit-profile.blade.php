@@ -1,10 +1,11 @@
-@extends('admin.layout.master')
+@extends('user.layout.master')
 @section('Title')
-  <h1 align="center" class="mt-3 mb-3">Edit Profile</h1>
+  <h1 align="center" class="mt-5 mb-5">Edit Profile</h1>
 @endsection
 
 @section('content')
-  <form class="" action="{{ route('admin.update', ['id' => $user->id])}}" method="post">
+  <form class="" action="{{ route('user.update', ['id' => $user->id])}}" method="post">
+    {{--  --}}
     @csrf
     <div class="form-group">
       <input type="text" name="name" value="{{{ $user->name }}}" placeholder="Enter Your Name" class="form-control">

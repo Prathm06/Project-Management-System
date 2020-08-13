@@ -7,6 +7,40 @@ p{font-family: 'Poppins', sans-serif;
 	line-height: 1.7em;
 	color: #999;
 }
+
+.container { 
+    animation: fadeInAnimation ease 5s ;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+  
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+	}
+    100% { 
+        opacity: 1; 
+     } 
+} 
+
+
+.card:hover{
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+}
+
+#progressbar{
+	margin-top:100px;
+}
+
+#hoveranchor:hover{
+	font-weight: bold;
+}
+#removeMem{
+	float: right;
+	margin-left: 20px;
+}
 a,
 a:hover,
 a:focus{
@@ -51,10 +85,23 @@ a:focus{
     background: #7386D5;
     color: #fff;
 	transition: all 0.3s;
-
+	position:fixed;
+	z-index: 1;
+}
+.container{
+	margin-left: 250px;
+}
+#sidebar #sidebarCollapse1{
+	float: right;
+	display: none;
+}
+.container .content #sidebarCollapse{
+	display: none;
 }
 #sidebar.active{
 	margin-left: -250px;
+	/* position:fixed;
+	z-index: 11111; */
 }
 
 #sidebar .sidebar-header{
@@ -73,18 +120,54 @@ a:focus{
 }
 
 #sidebar ul li a{
+	margin-bottom: 5px;
 	padding: 10px;
 	font-size: 1.1em;
 	display: block;
 }
-#sidebar ul li a:hover {
+#sidebar ul li a:hover{
     color: #7386D5;
-    background: #fff;
+	background: #fff;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+#sidebar ul li a .badge{
+	color: #000000;
+	background: #fff;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 }
 
-#sidebar ul li.active>a,{
-    color: #fff;
-    background: #F64B0B;
+#myInput{
+	float: left;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	border:none;
+	border-bottom: 1px solid #000000;
+	outline: none;
+	background: none;
+
+}
+.fa-search{
+	float: left;
+	margin-bottom: 10px;
+	margin-left: 5px;
+}
+#myInput:focus:not([readonly]) {
+	border-bottom: 1px solid #000000;
+	box-shadow: 0 1px 0 0 #000000;
+  }
+#sidebar ul li.active>a{
+    color: #7386D5;
+	background: #fff;
+	border-bottom-left-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
 }
 a[data-toggle="collapse"] {
     position: relative;
@@ -135,8 +218,22 @@ a.article:hover {
 	#sidebar{margin-left: -250px;}
 	#sidebar.active{
 		margin-left: 0px;
+		position:fixed;
+		z-index: 11111;
+	}
+	#sidebar #sidebarCollapse1{
+		float: right;
+		display: block;
+	}
+	.container .content #sidebarCollapse{
+		display: block;
 	}
 	#sidebarCollapse span{
 		display: none;
 	}
+	.container{
+		width: 100vw;
+		margin-left: 0;
+	}
+
 }

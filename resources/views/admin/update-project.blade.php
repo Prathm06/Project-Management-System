@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('Title')
-  <h1 align="center" class="mt-1 mb-3">Update Project</h1>
+  <h1 align="center" class="mt-3 mb-3">Update Project</h1>
 @endsection
 
 @section('content')
@@ -47,8 +47,6 @@
       <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Update Project">
       </div>
-
-
     </div>
   </form>
 @endsection

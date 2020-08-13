@@ -38,7 +38,7 @@ class MemberController extends Controller
           $project->enddate = $request->EndDate;
 
         $project->save();
-        return back();
+        return redirect('/manageProject')->with('status', 'Project Updated Successfully!!');
 
       }
 }
