@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('Title')
-  <h1 align="center" class="mt-3 mb-3">Dashboard</h1>
+  <h1 align="center" class="mt-3 mb-3">Main Dashboard</h1>
 @endsection
 
 @section('content')

@@ -244,6 +244,8 @@ a.article:hover {
 	#sidebar #sidebarCollapse1{
 		float: right;
 		display: block;
+		background: none;
+		border: none;
 	}
 	.container .content #sidebarCollapse{
 		display: block;

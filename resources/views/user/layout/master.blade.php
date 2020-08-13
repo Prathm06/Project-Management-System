@@ -17,7 +17,7 @@
    <div class="wrapper">
    	<nav id="sidebar" >
       <button type="button" id="sidebarCollapse1" class="btn btn-info">
-        <i class="fa fa-times" aria-hidden="true"></i>
+        <i class="fas fa-times"></i>
       </button>
    		<div class="sidebar-header">
         <img src="https://i.pinimg.com/originals/0c/3b/3a/0c3b3adb1a7530892e55ef36d3be6cb8.png" width="100px" alt="..." class="mx-auto d-block rounded-circle">
