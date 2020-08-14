@@ -19,7 +19,7 @@
           <!-- Card content -->
           <div class="card-body">
             <!-- Title -->
-            <a id="hoveranchor">{{ $project->name }}</a>
+              <a href="/view-project/{{$project->id}}"id="hoveranchor">{{ $project->name }}</a>
             <hr>
             <!-- Text -->
             <p class="card-text">{{$project->description}}</p>

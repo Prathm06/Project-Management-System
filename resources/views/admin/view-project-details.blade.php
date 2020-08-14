@@ -2,7 +2,7 @@
 @section('Title')
   <h1 align="center" class="mt-3 mb-3">View Project Details</h1>
 @endsection
-
+{{--  --}}
 @section('content')
 <div class="row">
     <div class="col-lg-6 col-sm-12 col-md-12">

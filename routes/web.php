@@ -1,8 +1,6 @@
 <?php
 
-use App\Notification;
-use Illuminate\Support\Facades\Session;
-
+ use App\Notification;
  use App\Project;
  use App\User;
  use App\Task;
@@ -97,12 +95,14 @@ Route::group(['middleware' =>['auth','admin']], function(){
       $projects = Project::all();
       return view('admin.manageproject', compact('projects'));
     } )->name('admin.Manageproject');
+
         Route::get('/manageProject/update/{id}',function($id){
 
           $project = Project::findOrFail($id);
           return view('admin.update-project', compact('project'));
 
         })->name('project.update');
+
         Route::get('/manageProject/+member/{id}',function($id){
 
           $project = Project::findOrFail($id);
@@ -111,7 +111,7 @@ Route::group(['middleware' =>['auth','admin']], function(){
           foreach ($users as $user) {
             array_push($arrayName,$user->user_id);
           }
-          $newUser1 = User::whereNotIn('id', $arrayName)->paginate();
+          $newUser1 = User::whereNotIn('id', $arrayName)->paginate(10000);
           // $newUser2 = User::whereIn('id', $arrayName)->paginate(6);
           return view('admin.add-member', compact('project','newUser1'));
 
@@ -125,8 +125,7 @@ Route::group(['middleware' =>['auth','admin']], function(){
           foreach ($users as $user) {
             array_push($arrayName,$user->user_id);
           }
-          $newUser1 = User::whereNotIn('id', $arrayName)->paginate();
-          $newUser2 = User::whereIn('id', $arrayName)->paginate();
+          $newUser2 = User::whereIn('id', $arrayName)->paginate(1000);
           return view('admin.remove-member', compact('project','newUser2'));
 
         })->name('project.removeMember');
@@ -137,25 +136,26 @@ Route::group(['middleware' =>['auth','admin']], function(){
     Route::get('/manageProject/manage/add/{pid}/{uid}','MemberController@add' )->name('member.add');
     Route::get('/manageProject/manage/remove/{pid}/{uid}','MemberController@remove' )->name('member.remove');
 
-    Route::get('/manageproject/view/{pid}', function ($pid) {
-      $project = Project::findorFail($pid);
+    // Route::get('/manageproject/view/{pid}', function ($pid) {
+    //   $project = Project::findorFail($pid);
+    //   $users = $project->users()->get(array('user_id'));
+    //   $arrayName = array();
+    //   foreach ($users as $user) {
+    //     array_push($arrayName,$user->user_id);
+    //   }
+    //   $projectuser = User::whereIn('id', $arrayName)->paginate();
 
-      $users = $project->users()->get(array('user_id'));
-      $arrayName = array();
-      foreach ($users as $user) {
-        array_push($arrayName,$user->user_id);
-      }
-      $projectuser = User::whereIn('id', $arrayName)->paginate();
+    //   $tasks = $project->tasks()->get(array('id'));
+    //   $arrayName = array();
+    //   foreach ($tasks as $task) {
+    //     array_push($arrayName,$task->id);
+    //   }
+    //   $projecttask = Task::whereIn('id', $arrayName)->paginate();
 
-      $tasks = $project->tasks()->get(array('id'));
-      $arrayName = array();
-      foreach ($tasks as $task) {
-        array_push($arrayName,$task->id);
-      }
-      $projecttask = Task::whereIn('id', $arrayName)->paginate();
+    //   return view('admin.view-project-details', compact('project','projectuser','projecttask'));
+    // })->middleware('viewProject');
 
-      return view('admin.view-project-details', compact('project','projectuser','projecttask'));
-    });
+    Route::get('/manageproject/view/{pid}', 'AdminAddProject@projectview');
 
     Route::get('notifications', 'TaskController@shownotification')->name('admin.notification');
     Route::get('notifications/read/{id}', 'TaskController@markread')->name('admin.markAsRead');
@@ -171,16 +171,21 @@ Route::group(['middleware' =>['auth','admin']], function(){
 });
 
 
-
-
 // Route::get('/test', function () {
-//   // $task = Task::create([
-//   //   'name' => 'Test Task',
-//   //   'description' => 'Test Task Description',
-//   //   'project_id' => '1',
-//   //   'completed_at' => now(),
-//   // ]);
-//   // $task->save();
-//
-//   return $t;
+  
+
+//   $projects = Project::all();
+//   foreach ($projects as $project) {
+//     # code...
+//     session()->put('key', $project->id);
+//     return Session::get('key');   
+    
+//   }
+
 // });
+
+Route::get('/test', function () {
+  $value = Session::get('key');
+  return $value;
+    
+});
