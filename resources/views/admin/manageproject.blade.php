@@ -6,7 +6,7 @@
 @section('content')
   <div class="row " style="margin-left:15px">
     @foreach ($projects as $project) 
-    <div class="col-lg-4 col-sm-12 col-md-6">
+    <div class="col-lg-4 col-sm-12 col-md-6" >
       <div class="card  mr-2 ml-2 mb-3 border border-dark" >
         <!-- Card image -->
         <div class="view overlay">

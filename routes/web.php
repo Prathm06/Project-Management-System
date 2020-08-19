@@ -135,26 +135,6 @@ Route::group(['middleware' =>['auth','admin']], function(){
     Route::post('/manageProject/manage/update/{pid}','MemberController@update' )->name('project.UpDate');
     Route::get('/manageProject/manage/add/{pid}/{uid}','MemberController@add' )->name('member.add');
     Route::get('/manageProject/manage/remove/{pid}/{uid}','MemberController@remove' )->name('member.remove');
-
-    // Route::get('/manageproject/view/{pid}', function ($pid) {
-    //   $project = Project::findorFail($pid);
-    //   $users = $project->users()->get(array('user_id'));
-    //   $arrayName = array();
-    //   foreach ($users as $user) {
-    //     array_push($arrayName,$user->user_id);
-    //   }
-    //   $projectuser = User::whereIn('id', $arrayName)->paginate();
-
-    //   $tasks = $project->tasks()->get(array('id'));
-    //   $arrayName = array();
-    //   foreach ($tasks as $task) {
-    //     array_push($arrayName,$task->id);
-    //   }
-    //   $projecttask = Task::whereIn('id', $arrayName)->paginate();
-
-    //   return view('admin.view-project-details', compact('project','projectuser','projecttask'));
-    // })->middleware('viewProject');
-
     Route::get('/manageproject/view/{pid}', 'AdminAddProject@projectview');
 
     Route::get('notifications', 'TaskController@shownotification')->name('admin.notification');
