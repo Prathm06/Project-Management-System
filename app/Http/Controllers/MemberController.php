@@ -24,7 +24,6 @@ class MemberController extends Controller
       $user = User::findOrFail($uid);
       $project->users()->detach($user);
       $adminuser = Auth::user();
-      Mail::to($user->email)->send(new projectAssignMail($project));
       return back()->with('remove', 'Member Removed Successfully!!');
     }
 

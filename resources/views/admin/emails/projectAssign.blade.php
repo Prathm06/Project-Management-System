@@ -7,7 +7,7 @@ Project Name : {{$projectName}}
 <br>
 Project Description : {{$projectDesrciption}}
 
-<b>Please visit site for maore details.</b>
+<b>Please visit site for more details.</b>
 
 Thanks,<br>
 {{ config('app.name') }}
